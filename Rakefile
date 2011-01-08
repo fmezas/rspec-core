@@ -22,6 +22,8 @@ desc "Run all examples"
 RSpec::Core::RakeTask.new(:spec) do |t|
   t.rspec_path = 'bin/rspec'
   t.rspec_opts = %w[--color]
+  t.rspec_opts << "-d" if ARGV.include?("--debug")
+  puts("rspec_opts = #{t.rspec_opts}")
   t.verbose = false
 end
 
